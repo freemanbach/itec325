@@ -15,7 +15,7 @@ ibarland #C: I have 100%'d Super Mario Odyssey.
 
 jclapsaddle #A: I am fluent in French.
 jclapsaddle #B: I am half deaf.
-jclapsaddle #C: I performed with an orcestra at Carnagy Hall in highschool.
+jclapsaddle #C: I performed with an orcestra at Carnegie Hall in highschool.
 
 Previous update by: ibarland
 
