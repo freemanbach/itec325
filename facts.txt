@@ -1,0 +1,15 @@
+Hello, this file is for RU ITEC325 2018fall hw04.
+Note that it's **public** on bitbucket!
+
+Give three statements about yourself: two true, one false.
+*After* the Part I due-date, you can edit this file to reveal the true fact.
+
+NOTE: precede your entry with "previous update by ...", where you use `git log`
+  to see who last committed the file before you.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ibarland #A: I had a computer program published in a magazine at age 17, in an Ada-like langauge.
+ibarland #B: I own more than 1000 CDs.
+ibarland #C: I have 100%'d Super Mario Odyssey.
+

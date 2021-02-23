@@ -1,0 +1,88 @@
+By Matt Seiler 2014-03-15
+slight update by ibalrand 2017-02-19
+
+
+Example method for deploying projects onto RUCS
+
+This describes one way of deploying a PHP project onto RUCS from a Git repository stored on BitBucket, using the ‘git archive’ command.
+
+Setting up a deployment key
+
+First, create an SSH identity for your team’s project account on RUCS. The procedure is identical to creating an SSH key pair on your personal machine or RUCS account - you can follow Dr. Barland’s original instructions for this (just keep in mind that the team account on RUCS is the client/source machine - destination configuration can be ignored). Quick command summary:
+
+  mkdir -p ~/.ssh 
+  cd ~/.ssh 
+  ssh-keygen -t rsa -b 3072 -P ""
+
+Next, register the public key from the pair you just created as a Deployment Key for your team’s BitBucket repository. As usual, BitBucket 101 has the details, but in short a deployment key allows read-only access to the repository - it can clone and fetch and pull, but never push or write tags, etc. This is perfect for our use case.
+
+To register the key:
+  log on to BitBucket, 
+  go to the main page for your team’s repository
+  click the avatar icon near the top-right to access Repo Administration (assuming you have admin access to the repo - if you don’t, whoever created the repo will and can grant additional admin privileges)
+  choose Bitbucket Settings from the dropdown
+  SSH Keys in side bar
+  click button “Add Key” 
+You can use cat ~/.ssh/id_rsa.pub to copy the contents of the public key from RUCS in order to paste them in BitBucket.
+
+At this point, the team account on RUCS has read-only access to the team repository on BitBucket, and we can get to the fun part.
+
+Using ‘git archive’
+
+The git archive command takes the contents of a Git repository on a particular branch and/or a particular tag or commit and packs them up in a .tar or .zip file for you. It automatically excludes the ‘.git/’ directory, and you can choose particular subdirectories inside the repo to include in the archive. But we’re really interested in the --remote option: instead of packing a local repo, the command can grab the files from a remote repsoitory and pack those instead. BitBucket happens to support this, (!) which is why we set up the Deployment Key.
+
+When on your team’s RUCS account, you can use a command like this to grab an archive from BitBucket:
+
+  git archive --format=tar --remote=git@bitbucket.org:<TEAM-NAME>/<REPO-NAME>.git HEAD > archive.tar
+
+This connects to your BitBucket repo, BitBucket creates an archive of the most recent files (‘HEAD’), and the archive command outputs a stream to standard output, which we redirect into a file of our choice (‘archive.tar’).
+
+Fixing file permissions
+
+You can use a quick shell script to fix all the file permissions in the ~/dynamic_php directory. In fact, the ITR guys provide a script to do just this at ‘/home/dynaweb/bin/php-permissions.sh’. 
+Unfortunately it seems to be a tad bugged - but luckily it’s other-readable, so we can just make a copy and modify it:
+
+  mkdir -p ~/bin 
+  cat /home/dynaweb/bin/php-permissions.sh > ~/bin/php-perms.sh 
+  chmod 700 ~/bin/php-perms.sh
+
+The problem in our borrowed ‘php-perms.sh’ is on line 3: /usr/ucb/whoami doesn’t exist. However, /usr/bin/whoami does, so changing line 3 to WHO=`/usr/bin/whoami` seems to fix things nicely. (Worst case, you can hardcode the WHO variable to your team account name, since we’re only using this copy of the script for the one account anyway.)
+
+Now, running php-perms.sh should fix all the permissions in your dynamic_php/ directory. You can also find another example of a script that does the same thing (simpler, but less efficient) here (at the bottom, “Fixing Web Permissions”).
+
+Making it all work together
+
+So we can grab an archive, and we can fix all the file permissions. It’s now a simple matter to do all of it together using another shell script.
+
+  touch ~/bin/deploy.sh 
+  chmod 700 ~/bin/deploy.sh
+
+Then with the editor of your choice, put something like the following in deploy.sh:
+
+==== BEGIN FILE ====
+#!/bin/bash
+
+## TODO: Change the variables `remote` and `webdir` to the clone/pull address for your 
+##       team BitBucket repo and the directory to extract files to, respectively 
+remote="git@bitbucket.org:itec325acm/www-ru-acm.git"
+webdir="/home/proj7/dynamic_php/"
+
+rm -rf $webdir
+mkdir -p $webdir
+
+git archive --format=tar --remote=$remote master:dynamic_php/ | tar -x -C $webdir
+
+php-perms.sh
+==== END FILE ====
+
+What this script does:
+
+remove ~/dynamic_php/ and all its contents
+recreate the ~/dynamic_php folder, since we just deleted it.
+grab an archive of only the contents of the dynamic_php/ folder on the ‘master’ branch on BitBucket
+pipe the output to tar, which extracts the archive into ~/dynamic_php/
+Call the other script, php-perms.sh, to fix web permissions
+Now, after ssh-ing into the team RUCS account, you can deploy your web project from BitBucket to dynamic_php with one command:
+
+ deploy.sh
+

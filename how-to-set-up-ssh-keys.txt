@@ -1,0 +1,94 @@
+# This is the file ~/.ssh/Readme
+# How to set up passwordless ssh/scp from machine $Src to machine $Dest.
+# (Substitute the machine names for "$Src" and "$Dest", in the below.)
+#
+# tl;dr: To connect from machine "Src" to machine "Dest":
+#  a. generate a public/private key pair
+#  b. put the *private* key in the "right place" on Src
+#  c. put the *public*  key in the "right place" on Dest (and any other machines):
+#
+# tl;dr but want a few more clues:
+#  a1. `ssh_keygen` is a program to generate public/private key pairs
+#  b1. the "right place" for the private key on Src is probably ~/.ssh/id_rsa
+#      (it's probably already there from step (a))
+#  c1. Where to find the public key?  Probably in ~/.ssh/id_rsa.pub
+#  c2. The "right place" for the public key on Dest is probably
+#      as *one line* of the file   ~/.ssh/authorized_keys
+#  c3. ...but other destination-machines might it in a different place,
+#      e.g. bitbucket.org wants you to enter the public key via your account
+#      on their webiste: [YourAccountAvatar] » Bitbucket Settings » SSH Keys
+
+
+
+
+
+# Note: This file is written in a script-like style (/bin/csh), but is NOT a script.
+# (For starters, different steps have to be done on each machine.)
+# It has not been thoroughly tested for all possible situations.
+# Do the steps by hand, to understand how it works.
+
+set Src=`hostname`;
+
+# On machine $Src:
+#
+cd ~/.ssh
+# Generate a key for this machine, if it doesn't already exist:
+if (! -e id_rsa.pub) ssh-keygen -t rsa  -b 3072  -P ""         -f id_rsa
+#             Those flags mean: -t type -b #bits -P passphrase -f file   -C comment
+#
+# Optional/helpful: give the local public key a better name:
+ln -s id_rsa.pub id_rsa-$user-at-$Src.pub
+
+# Note: 
+# `id_rsa.pub` contains the public key and can(should) be copied to other machines; 
+# `id_rsa` contains the private key and should not be copied, nor readable by any others.
+
+
+
+## On machine $Dest:
+
+# Create files as necessary:
+mkdir --parents ~/.ssh
+cd ~/.ssh
+touch authorized_keys
+chmod 600 authorized_keys
+# ssh won't work if authorized_keys is writable by group or other!
+
+# Now grab the public key from the other machine, 
+# and append it to authorized_keys:
+scp $Src:.ssh/id_rsa.pub  id_rsa-$user-at-$Src.pub
+cat id_rsa-$user-at-$Src.pub  >>! authorized_keys
+rm  id_rsa-$user-at-$Src.pub
+
+# At this point, you can test (on $Src): ssh $Dest   and hopefully no password required.
+
+
+#######################
+# Other notes:
+#
+# (You may also want use `ls -l` to confirm that authorized_keys is readable,
+#  *and* not writable by group, other.)
+#
+# Note that even though a username@host appears at the end of every public key,
+# this plays no actual role in the key.  Nor does the name or IP address of the
+# host matter at all.  All that matters if the Src had some private-key set up,
+# and the Dest had the corresponding public-key.
+#
+# Don't let other people sneakily add lines to your own file `~/authorized_keys` !
+# That's as good as giving them your password for that machine.
+# It's fine to let other people *see* your file though (since it only contains
+# public keys).
+#
+# If you have several machines to connect *from* (e.g. your laptop, your home
+#  machine, and rucs), you should set up separate key-pairs for each host.
+# It is *conceivable* to copy the same private-key to each of those places,
+# but it is bad practice: if somebody stole your laptop, or broke in to your
+# radford account years after you graduate, you want to be able to go
+# to Destination machines and just remove that one corresponding public key,
+# without having the attacker gain access to all Dest's that you've configured
+# after graduation.
+#
+#
+# Machines to ssh to, @radford.edu:
+#   rucs
+#   ruacad
