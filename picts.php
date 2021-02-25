@@ -35,6 +35,9 @@ require_once('utils.php');
       <li>
 	<?php echo thumbnail("eggplant-man-statue.jpg",300); ?> Beware, the eggplant man!
       </li>
+      <li>
+	<?php echo thumbnail("ginger.jpeg",300); ?> My dog Ginger!
+      </li>
     </ul>
 
   </body>
