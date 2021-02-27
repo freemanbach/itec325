@@ -17,5 +17,3 @@ jclapsaddle #A: I am fluent in French.
 jclapsaddle #B: I am half deaf.
 jclapsaddle #C: I performed with an orcestra at Carnegie Hall in highschool.
 
-Previous update by: ibarland
-
