@@ -1,0 +1,50 @@
+# files to ignore, specific to this repo:
+
+picts.html
+
+
+
+# Files to ignore more generally;
+# consider adding this to your personal ~/.gitignore used for *all* projects.
+
+
+
+# generated-files
+#
+*.class
+a.out
+*.o
+*.so
+*.dll
+*.exe
+__pycache__
+
+
+# editor saves
+#
+[._]*.swp
+*~
+# powerpoint:
+~$*
+
+
+# packages
+#
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+
+# (mac)OS-specific
+#
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
