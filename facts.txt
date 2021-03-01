@@ -28,3 +28,7 @@ mdavis #C: I own a million dollar beach house in Florida.
 bwolfe #A: I played the saxophone.
 bwolfe #B: I traveled a month in Europe with only a carry on suitcase.
 bwolfe #C: I'm from Canada.
+
+jbrewer #A: I play guitar
+jbrewer #A: I have been skydiving
+jbrewer #A: I have been to Hawaii
