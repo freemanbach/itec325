@@ -24,3 +24,7 @@ vwilliamson #C: I love white chocolate.
 mdavis #A: I have published an app in the android marketplace.
 mdavis #B: I have traveled to Los Cobos Mexico.
 mdavis #C: I own a million dollar beach house in Florida. 
+
+bwolfe #A: I played the saxophone.
+bwolfe #B: I traveled a month in Europe with only a carry on suitcase.
+bwolfe #C: I'm from Canada.
