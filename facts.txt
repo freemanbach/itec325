@@ -17,3 +17,7 @@ jclapsaddle #A: I am fluent in French.
 jclapsaddle #B: I am half deaf.
 jclapsaddle #C: I performed with an orcestra at Carnegie Hall in highschool.
 
+vwilliamson #A: I like anime.
+vwilliamson #B: I've been grazed by a bullet.
+vwilliamson #C: I love white chocolate.
+
