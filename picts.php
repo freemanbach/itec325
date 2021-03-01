@@ -39,13 +39,12 @@ require_once('utils.php');
 	<?php echo thumbnail("ginger.jpeg",300); ?> My dog Ginger!
       </li>
       <li>
-<<<<<<< HEAD
-	<?ph echo thumbnail("pupa.PNG",300); ?> This is my discord icon ..!
+	<?php echo thumbnail("pupa.PNG",300); ?> This is my discord icon ..!
 	</li>	
-=======
+	<li>
         <?php echo thumbnail("mountains.jpg",300); ?> Cool mountains! 
       </li>
->>>>>>> b1ea18d965a3de431e7d096adf8bef97190f0900
+
     </ul>
 
   </body>
