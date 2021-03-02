@@ -32,6 +32,7 @@ require_once('utils.php');
 
     <h3>Images</h3>
     <ul>
+<<<<<<< HEAD
       <li>
 	<?php echo thumbnail("eggplant-man-statue.jpg",300); ?> Beware, the eggplant man!
       </li>
@@ -47,6 +48,23 @@ require_once('utils.php');
 	<li>
 	  <?php echo thumbnail("Maverick.jpg",300); ?> My dog Maverick!
 	</li>
+=======
+		<li>
+			<?php echo thumbnail("eggplant-man-statue.jpg",300); ?> Beware, the eggplant man!
+		</li>
+		<li>
+			<?php echo thumbnail("ginger.jpeg",300); ?> My dog Ginger!
+		</li>
+		<li>
+			<?php echo thumbnail("pupa.PNG",300); ?> This is my discord icon ..!
+		</li>	
+		<li>
+			<?php echo thumbnail("mountains.jpg",300); ?> Cool mountains! 
+		</li>
+		<li>
+			<?php echo thumbnail("myCat.jpg",300); ?> My cat on my shoulder 
+		</li>
+>>>>>>> 8f5ec3d6a661ee9d4187b6d80626262eb465125c
 
     </ul>
 
