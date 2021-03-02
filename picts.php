@@ -11,7 +11,7 @@ require_once('utils.php');
   <body>
     <h3>Instructions</h3>
     <ol type='i'>
-      <li>Add an image to the hw04/git repo, and link to it in the UL below.
+      <li>Add an image to the hw04/git repo, and link to it in the UL below
       </li>
       <li>
         You can generate/view the html file via <code>php picts.php >! picts.html</code>.
@@ -44,6 +44,9 @@ require_once('utils.php');
 	<li>
         <?php echo thumbnail("mountains.jpg",300); ?> Cool mountains! 
       </li>
+	<li>
+	  <?php echo thumbnail("Maverick.jpg",300); ?> My dog Maverick!
+	</li>
 
     </ul>
 

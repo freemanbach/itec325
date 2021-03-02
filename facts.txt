@@ -28,3 +28,8 @@ mdavis #C: I own a million dollar beach house in Florida.
 jbrewer #A: I play guitar
 jbrewer #A: I have been skydiving
 jbrewer #A: I have been to Hawaii
+
+bwolfe #A: I played the saxophone for 7 years.
+bwolfe #B: I'm from Canada.
+bwolfe #C: I toured around Europe for a month with only a small carry on bag.
+
