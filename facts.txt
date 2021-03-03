@@ -33,4 +33,4 @@ jbrewer #A: I have been to Hawaii
 bwolfe #A: I played the saxophone for 7 years.                                 [True]
 bwolfe #B: I'm from Canada.                                                    [False]
 bwolfe #C: I toured around Europe for a month with only a small carry on bag.  [True]
-
+	[previous edit by ibarland]
