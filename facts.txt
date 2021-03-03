@@ -9,9 +9,10 @@ NOTE: precede your entry with "previous update by ...", where you use `git log`
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ibarland #A: I had a computer program published in a magazine at age 17, in an Ada-like langauge.
-ibarland #B: I own more than 1000 CDs.
-ibarland #C: I have 100%'d Super Mario Odyssey.
+ibarland #A: I had a computer program published in a magazine at age 17, in an Ada-like langauge. [True]
+ibarland #B: I own more than 1000 CDs.               [True]
+ibarland #C: I have 100%'d Super Mario Odyssey.      [False]
+   [previous edit by bwolfe8]
 
 jclapsaddle #A: I am fluent in French.
 jclapsaddle #B: I am half deaf.
