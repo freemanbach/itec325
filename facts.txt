@@ -26,9 +26,10 @@ mdavis #A: I have published an app in the android marketplace.
 mdavis #B: I have traveled to Los Cobos Mexico.
 mdavis #C: I own a million dollar beach house in Florida. 
 
-jbrewer #A: I play guitar
-jbrewer #A: I have been skydiving
-jbrewer #A: I have been to Hawaii
+jbrewer #A: I play guitar [True]
+jbrewer #A: I have been skydiving [True]
+jbrewer #A: I have been to Hawaii [False]
+	[previous edit by ibarland]
 
 bwolfe #A: I played the saxophone for 7 years.                                 [True]
 bwolfe #B: I'm from Canada.                                                    [False]
