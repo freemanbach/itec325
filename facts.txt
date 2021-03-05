@@ -23,9 +23,10 @@ vwilliamson #A: I like anime.
 vwilliamson #B: I've been grazed by a bullet.
 vwilliamson #C: I love white chocolate.
 
-mdavis #A: I have published an app in the android marketplace.
-mdavis #B: I have traveled to Los Cobos Mexico.
-mdavis #C: I own a million dollar beach house in Florida.
+mdavis #A: I have published an app in the android marketplace.	[True]
+mdavis #B: I have traveled to Los Cobos Mexico.			[True]
+mdavis #C: I own a million dollar beach house in Florida.	[False]
+	[previous edit by jakobntc]
 
 jbrewer #A: I play guitar [True]
 jbrewer #B: I have been skydiving [True]
