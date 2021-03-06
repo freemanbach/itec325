@@ -19,10 +19,10 @@ jclapsaddle #B: I am half deaf.                                              [Tr
 jclapsaddle #C: I performed with an orcestra at Carnegie Hall in highschool. [True]
     [previous edit by jbrewer]
 
-vwilliamson #A: I like anime.
-vwilliamson #B: I've been grazed by a bullet.
-vwilliamson #C: I love white chocolate.
-
+vwilliamson #A: I like anime.[True]
+vwilliamson #B: I've been grazed by a bullet.[True]
+vwilliamson #C: I love white chocolate.[False]
+[previous edit by vwilliamson]
 mdavis #A: I have published an app in the android marketplace.	[True]
 mdavis #B: I have traveled to Los Cobos Mexico.			[True]
 mdavis #C: I own a million dollar beach house in Florida.	[False]
